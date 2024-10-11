@@ -14,7 +14,6 @@ public:
         }
         // Resize the string to contain only valid characters
         s.resize(j);
-        cout << s << " ";
         
         int first = 0;
         int last = s.size() - 1;
@@ -27,6 +26,8 @@ public:
                 return false;
             }
         }
+
+
         return true;
     }
 };
