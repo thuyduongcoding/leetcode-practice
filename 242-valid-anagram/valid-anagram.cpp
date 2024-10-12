@@ -1,16 +1,16 @@
 class Solution {
 public:
-    unordered_map<char, int> find_occurence(string a) {
-        unordered_map<char, int> a_map;
-        for (char ele : a) {
-            if (a_map.find(ele) == a_map.end()) {
-                a_map[ele] = 0;
-            } else {
-                a_map[ele]++;
-            }
-        }
-        return a_map;
-    }
+    // unordered_map<char, int> find_occurence(string a) {
+    //     unordered_map<char, int> a_map;
+    //     for (char ele : a) {
+    //         if (a_map.find(ele) == a_map.end()) {
+    //             a_map[ele] = 0;
+    //         } else {
+    //             a_map[ele]++;
+    //         }
+    //     }
+    //     return a_map;
+    // }
     bool isAnagram(string s, string t) {
         // My solution
         // unordered_map<char, int> s_map = find_occurence(s);
@@ -45,15 +45,15 @@ public:
             return false;
         } 
 
-        for(char ele:s) {
-            cnt[ele - 'a']++;
+        for(int i = 0; i < s_size; i++) {
+            cnt[s[i] - 'a']++;
         }
-        for (char ele:t) {
-            cnt[ele - 'a']--;
+        for (int i = 0; i < t_size; i++) {
+            cnt[t[i] - 'a']--;
         }
 
-        for(int num : cnt) {
-            if (num!=0) {
+        for(int i = 0; i < cnt.size(); i++) {
+            if (cnt[i] != 0) {
                 return false;
             }
         }
