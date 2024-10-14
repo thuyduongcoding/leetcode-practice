@@ -19,11 +19,11 @@ public:
         } else if (m == 0) {
             nums1 = nums2;
         }
-        while (i >=0) {
-            nums1[w] = nums1[i];
-            i--;
-            w--;
-        }      
+        // while (i >= 0) {
+        //     nums1[w] = nums1[i];
+        //     i--;
+        //     w--;
+        // }      
         while (j >= 0) {
             nums1[w] = nums2[j];
             j--;
