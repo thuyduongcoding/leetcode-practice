@@ -6,21 +6,28 @@ public:
         b = temp;
     }
     vector<int> applyOperations(vector<int>& nums) {
-        for (int i = 0; i < nums.size() - 1 ; i++) {
-            if (nums[i] == nums[i+1]) {
-                nums[i] = nums[i]*2;
-                nums[i+1] = 0;
-            }
+        vector<int> result;
+
+        for (int i = 0; i < nums.size() ; i++) {
+            if (i < nums.size() - 1 && nums[i] != 0 && nums[i] == nums[i+1]) {
+                result.push_back(nums[i] * 2);
+                i++;
+            } else if (nums[i] != 0) result.push_back(nums[i]);
         }
-        for (int i = nums.size() - 1; i >= 0; i--) {
-            if (nums[i] == 0) {
-                int j = i;
-                while (j < nums.size() - 1 && nums[j+1] != 0) {
-                    swap(nums[j], nums[j+1]);
-                    j++;
-                }
-            }
+
+        while (result.size() != nums.size()) {
+            result.push_back(0);
         }
-        return nums;
+
+        // for (int i = nums.size() - 1; i >= 0; i--) {
+        //     if (nums[i] == 0) {
+        //         int j = i;
+        //         while (j < nums.size() - 1 && nums[j+1] != 0) {
+        //             swap(nums[j], nums[j+1]);
+        //             j++;
+        //         }
+        //     }
+        // }
+        return result;
     }
 };
