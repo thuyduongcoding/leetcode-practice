@@ -15,6 +15,9 @@ public:
         if (root == nullptr) {
             return 0;
         }
+        if (root->right == nullptr && root->left == nullptr) {
+            return 1;
+        }
         int leftDepth = maxDepth(root->left);
         int rightDepth = maxDepth(root->right);
         return 1 + max(leftDepth, rightDepth); 
