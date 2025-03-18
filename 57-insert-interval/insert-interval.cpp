@@ -12,9 +12,8 @@ public:
             int merge_start = merge[0];
             int merge_end = merge[1];
 
-            if (curr_end < merge_start) {
-                results.push_back(intervals[i]);
-            } else if (merge_end < curr_start) {
+            if (curr_end < merge_start) { results.push_back(intervals[i]);} 
+            else if (merge_end < curr_start) {
                 results.push_back(merge);
                 results.push_back(intervals[i]);
                 for (int j = i + 1; j < intervals.size(); j++) {
@@ -23,9 +22,8 @@ public:
                 merge = {};
                 break;
             } else {
-                merge_start = std::min(curr_start, merge_start);
-                merge_end = std::max(curr_end, merge_end);
-                merge = {merge_start, merge_end}; 
+                merge[0] = std::min(curr_start, merge_start);
+                merge[1] = std::max(curr_end, merge_end);
             }
         }
         if (!merge.empty()) { results.push_back(merge);}
