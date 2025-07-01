@@ -1,9 +1,6 @@
 class Solution:
     def isValid(self, s: str) -> bool:
-        if len(s) == 1:
-            return False
-        if len(s) == 0:
-            return True
+        if not s: return True
         pairs = {")":"(", "}":"{", "]":"["}
         stack = []
         for char in s:
@@ -11,9 +8,6 @@ class Solution:
                 stack.pop()
             else:
                 stack.append(char)
-        if len(stack) == 0:
-            return True
-        else:
-            return False
+        return len(stack) == 0
 
         
