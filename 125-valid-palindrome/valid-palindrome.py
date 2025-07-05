@@ -1,9 +1,6 @@
 class Solution:
     def isPalindrome(self, s: str) -> bool:
-        if len(s) < 2:
-            return True
-        sep = ""
-        s_processed = sep.join([char.lower() for char in s if char.isalnum()])
+        s_processed = re.sub('[^0-9a-zA-Z]+', '', s).lower()
         if s_processed == s_processed[::-1]:
             return True
         return False
