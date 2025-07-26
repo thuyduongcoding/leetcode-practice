@@ -1,32 +1,27 @@
 class Solution:
-    def twoSum(self, nums, target):
-        i = 0
-        j = len(nums) - 1
-        sub_results = []
-        while (i < j):
-            total = nums[i] + nums[j]
-            if total > target: 
-                j-=1
-            elif total < target: 
-                i+=1
-            else: 
-                sub_results.append([nums[i], nums[j]])
-                while i < len(nums) - 1 and nums[i+1] == nums[i]:
-                    i+=1
-                while j > 0 and nums[j-1] == nums[j]:
-                    j-=1
-                i+=1
-                j-=1
-        return sub_results
     def threeSum(self, nums: List[int]) -> List[List[int]]:
-        results = []
         nums.sort()
+        if nums[0] > 0:
+            return []
+        results = []
         for i in range(len(nums) - 2):
-            if i != 0 and nums[i] == nums[i-1]:
+            if i > 0 and nums[i] == nums[i-1]:
                 continue
-            x = nums[i]
-            sub_results = self.twoSum(nums[i+1:], 0 - x)
-            for result in sub_results:
-                results.append([nums[i], result[0], result[1]])
+            left = i + 1
+            right = len(nums) - 1
 
+            while left < right:
+                total = nums[i] + nums[left] + nums[right]
+                if total == 0:
+                    results.append([nums[i], nums[left], nums[right]])
+                    while left < right and nums[left+1] == nums[left]:
+                        left+=1
+                    left+=1
+                    right-=1
+                    
+                elif total < 0:
+                    left+=1
+                else:
+                    right -=1
+            
         return results
