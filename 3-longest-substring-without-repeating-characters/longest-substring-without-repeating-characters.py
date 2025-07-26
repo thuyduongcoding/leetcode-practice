@@ -18,13 +18,14 @@ class Solution:
                 current_max +=1
                 char_map[s[fast]] = fast
                 fast+=1
+           
+            if fast < len(s) and s[fast] in char_map:
+                slow = char_map[s[fast]] + 1
+                fast = slow + 1
+            
             max_length = max(current_max, max_length)
             char_map = {}
-
-            slow += 1
-            fast = slow + 1
             
-        
         return max_length
 
 
