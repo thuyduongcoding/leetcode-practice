@@ -16,6 +16,8 @@ class Solution:
                     results.append([nums[i], nums[left], nums[right]])
                     while left < right and nums[left+1] == nums[left]:
                         left+=1
+                    while left < right and nums[right-1] == nums[right]:
+                        right-=1
                     left+=1
                     right-=1
                     
