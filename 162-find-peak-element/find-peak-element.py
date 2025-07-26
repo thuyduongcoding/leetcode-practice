@@ -7,17 +7,10 @@ class Solution:
 
         while (left <= right):
             mid = (right - left)//2 + left
-            print("left: {}, right: {}, mid: {}".format(left, right, mid))
-            if nums[mid - 1] < nums[mid] and (mid + 1 >= len(nums)):
-                return mid         
-            if nums[mid+1] < nums[mid] and (mid - 1 < 0):
-                return mid
-
-            if nums[mid + 1] > nums[mid]:
+            if mid < len(nums) -1 and nums[mid+1] > nums[mid]:
                 left = mid + 1
-            elif nums[mid -1] > nums[mid]:
+            elif mid > 0 and nums[mid-1] > nums[mid]:
                 right = mid - 1
             else:
                 return mid
-            
         
