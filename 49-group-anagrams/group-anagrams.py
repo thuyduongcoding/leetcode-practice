@@ -14,10 +14,6 @@ class Solution:
                 char_list_map[word_count_tuple] = []
             char_list_map[word_count_tuple].append(word)
 
-        result = []
-        for key, value in char_list_map.items():
-            result.append(value)
-
-        return result
+        return list(char_list_map.values())
             
         
