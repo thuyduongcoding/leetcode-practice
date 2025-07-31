@@ -1,11 +1,10 @@
 class Solution:
     def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
         def convert_word_to_tuple(word: str):
-            # l = [0] * 26
-            # for c in word:
-            #     l[ord(c) - ord('a')] +=1
-            # return tuple(l)
-            return tuple(sorted(word))
+            l = [0] * 26
+            for c in word:
+                l[ord(c) - ord('a')] +=1
+            return tuple(l)
 
         char_list_map = {}
 
