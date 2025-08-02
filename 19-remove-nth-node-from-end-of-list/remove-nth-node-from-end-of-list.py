@@ -13,12 +13,13 @@ class Solution(object):
 
         dummy = ListNode(0, head)
 
-        slow, fast = dummy, dummy
+        slow, fast = dummy, head
 
-        for _ in range(n):
+        while n > 0 and fast:
             fast = fast.next
+            n-=1
         
-        while fast.next:
+        while fast:
             slow = slow.next
             fast = fast.next
 
